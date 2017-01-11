@@ -26,9 +26,9 @@ module.exports = function (db) {
 
     lrserver.watch([
       __dirname + "/public",
-      __dirname + "/client",
+      __dirname + "/src",
     ])
-    
+
     app.use(require('inject-lr-script')())
 
     app.use(webpackDevMiddleware(compiler, {
@@ -42,7 +42,7 @@ module.exports = function (db) {
   app.use('/', express.static(path.join(__dirname, 'public')))
 
   // routes
-  app.use('/api/v1/cats', api.cats(db))
+  // app.use('/api/v1/cats', api.cats(db))
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
