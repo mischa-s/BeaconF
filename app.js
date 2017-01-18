@@ -42,7 +42,7 @@ module.exports = function (db) {
   app.use('/', express.static(path.join(__dirname, 'public')))
 
   // routes
-  // app.use('/api/v1/cats', api.cats(db))
+  app.use('/api/v1/data', api.myRoute(db))
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
@@ -52,6 +52,11 @@ module.exports = function (db) {
   })
 
   // error handlers
+  app.use(function(req, res, next) {
+    const err = new Error('Not Found')
+    err.status = 404
+    next(err)
+  })
 
   // development error handler
   // will print stacktrace

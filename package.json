@@ -7,12 +7,12 @@
     "dev": "node-dev ./bin/www",
     "test": "ava test/**/*.js --serial --verbose"
   },
-      "babel": {
-        "presets": [
-          "es2015",
-          "react"
-        ]
-    },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "dependencies": {
     "body-parser": "~1.13.2",
     "connect-livereload": "^0.6.0",
@@ -28,6 +28,7 @@
     "pg": "6.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "redux": "^3.6.0",
     "sqlite3": "^3.1.8",
     "superagent": "^3.3.1",
     "superagent-as-promised": "^4.0.0"
