@@ -7,9 +7,14 @@ module.exports= reducer
     const newState = clone(state)
     switch (action.type) {
 
+      case 'GET_ALL_FARMS':
+      console.log (action)
+      // newState.farms= action.payload
+      //   return newState
+
       case 'ADD_FARM_TO_FARMS':
       var farm= action.payload
-      var farmID = farm.id
+      // var farmID = farm.id
         newState.farms[farmID] = farm
         return newState
 

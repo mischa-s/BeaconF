@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { createStore } from 'redux';
 import reducer from './reducer'
+import request from 'superagent'
 
 const initialState = {
   farms: {
@@ -40,5 +41,13 @@ document.addEventListener('DOMContentLoaded', (e) => {
     )
   }
 
-  store.dispatch({type: 'anytype'})
+  request('/api/v1/farms', (err, res) => {
+    console.log('res', res)
+    store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
+
+  })
+
+  store.dispatch({type: 'launch!'})
+
+
 })

@@ -1,41 +1,27 @@
-import '../App.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import '../App.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import AddFarmForm from './AddFarmForm'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import DefaultButton from './DefaultButton'
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import AddFarmButton from './AddFarmButton'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import ListOfFarms from './ListOfFarms'
 
 module.exports = function App (props) {
-    const farms = props.state.farms
-    const arrOfFarms = objToArr(farms)
-    const style = {marginLeft: 20}
     injectTapEventPlugin();
     return (
       <div>
-        <div className='listOfFarms'>
-          {arrOfFarms.map((farm) =>
-            <div className = 'eachFarm' key={farm.id}>{farm.name}, {farm.location},
-              <div className = 'farmImage'>
-                <img src= {farm.mainImageURL} />
-              </div>
-            </div>)}
+        <div>
+          <ListOfFarms farms={props.state.farms} />
         </div>
         <div className = 'addFarm'>
           <MuiThemeProvider>
             < AddFarmForm />
           </MuiThemeProvider>
           <MuiThemeProvider>
-            < DefaultButton />
+            < AddFarmButton />
           </MuiThemeProvider>
         </div>
       </div>
     );
-}
-
-
-function objToArr (obj){
-  return Object.keys(obj).map(function(oneObj){
-      return obj[oneObj]
-  })
 }

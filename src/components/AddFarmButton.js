@@ -5,11 +5,11 @@ const style = {
   margin: 12,
 };
 
-const RaisedButtonExampleSimple = () => (
+const AddFarmButton = () => (
   <div>
     <br />
     <RaisedButton label="Add Farm" fullWidth={true} />
   </div>
 );
 
-export default RaisedButtonExampleSimple;
+export default AddFarmButton;

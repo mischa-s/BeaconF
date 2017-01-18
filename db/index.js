@@ -1,5 +1,5 @@
 module.exports = function (knex) {
-  
+
   return {
     add: function (table, row) {
       return knex(table)
@@ -9,8 +9,8 @@ module.exports = function (knex) {
         })
     },
 
-    find: function (table, options) {
-      return knex(table).select()
+    find: function (farms) {
+      return knex(farms).select()
     },
 
     findById: function (table, id) {
