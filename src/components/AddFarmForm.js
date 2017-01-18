@@ -11,15 +11,15 @@ module.exports = function() {
 
   return (
     <div>
-      ( <Paper zDepth={2}>
-          <TextField hintText="Farm Name" style={style} underlineShow={false} />
-          <Divider />
-          <TextField hintText="Farm Location" style={style} underlineShow={false} />
-          <Divider />
-          <TextField hintText="Type of Farm" style={style} underlineShow={false} />
-          <Divider />
+       <Paper Depth={2}>
+          <TextField hintText="Farm Name" style={style} underlineShow={true} />
+          <br/>
+          <TextField hintText="Farm Location" style={style} underlineShow={true} />
+          <br/>
+          <TextField hintText="Type of Farm" style={style} underlineShow={true} />
         </Paper>
-        )
     </div>
     )
 }
+
+//value={this.state.name} onChange={e => this.setState({ name: e.target.value })}

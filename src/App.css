@@ -5,12 +5,18 @@ body {
   background-color: #222;
 }
 .listOfFarms {
-  padding: 5em;
+  padding-top: 10em;
   text-align: center;
   color: white;
+
+}
+.addFarm {
+  width: 50em;
+  margin: auto;
+
 }
 
 .eachFarm {
   font-size: 2em;
-  padding: 1em;
+  padding-bottom: 1em;
 }

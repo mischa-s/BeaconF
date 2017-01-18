@@ -14,7 +14,7 @@ const initialState = {
     },
     2: {
         id: 2,
-        name: 'Triple H',
+        name: 'Triple H Beef',
         location: 'Canada',
         type: 'Cattle Ranch'
     }
