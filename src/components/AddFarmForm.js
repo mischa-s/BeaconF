@@ -11,7 +11,7 @@ module.exports = function() {
 
   return (
     <div>
-       <Paper Depth={2}>
+        <Paper zDepth={2}>
           <TextField hintText="Farm Name" style={style} underlineShow={true} />
           <br/>
           <TextField hintText="Farm Location" style={style} underlineShow={true} />

@@ -11,13 +11,14 @@ module.exports = function App (props) {
     const arrOfFarms = objToArr(farms)
     const style = {marginLeft: 20}
     injectTapEventPlugin();
-
     return (
       <div>
         <div className='listOfFarms'>
           {arrOfFarms.map((farm) =>
-            <div className = 'eachFarm' key={farm.id}>{farm.name}, {farm.location}
-              
+            <div className = 'eachFarm' key={farm.id}>{farm.name}, {farm.location},
+              <div className = 'farmImage'>
+                <img src= {farm.mainImageURL} />
+              </div>
             </div>)}
         </div>
         <div className = 'addFarm'>

@@ -5,7 +5,7 @@ body {
   background-color: #222;
 }
 .listOfFarms {
-  padding-top: 10em;
+  padding-top: 2em;
   text-align: center;
   color: white;
 
@@ -13,10 +13,16 @@ body {
 .addFarm {
   width: 50em;
   margin: auto;
+  padding-bottom: 3em;
 
 }
 
 .eachFarm {
   font-size: 2em;
   padding-bottom: 1em;
+}
+
+.img.farmImage{
+  height: 1em;
+
 }
