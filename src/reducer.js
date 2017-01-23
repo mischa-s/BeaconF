@@ -8,15 +8,11 @@ module.exports= reducer
     switch (action.type) {
 
       case 'GET_ALL_FARMS':
-      console.log ("Get all farms case: ", action.payload)
-      newState.farms= action.payload
-      console.log("New State Farms :", newState.farms);
-      console.log("State Farms", state.farms);
-      return newState
+        newState.farms= action.payload
+        return newState
 
       case 'ADD_FARM_TO_FARMS':
       var farm= action.payload
-      // var farmID = farm.id
         newState.farms[farmID] = farm
         return newState
 

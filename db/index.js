@@ -1,10 +1,10 @@
 module.exports = function(knex) {
   return {
 
-    add: function (table, row) {
-      return knex(table)
+    add: function (table) {
+      return knex(table).insert(farm)
       .then(() => {
-        return this.find(table, {})
+        return knex(table).select()
       })
     },
 

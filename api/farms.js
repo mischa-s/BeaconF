@@ -13,7 +13,12 @@ module.exports = function(db) {
         res.json(farms)
       })
   }
+  function post(req, res, next) {
+    db.add('farms', req.body)
+      .then((farms) => {
+        res.json(farms)
+      }
+    .catch(next)
+  }
   return route
 }
-
- function post(req, res, next) {}

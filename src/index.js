@@ -39,10 +39,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
       root
     )
   }
-
   request('/api/v1/farms', (err, res) => {
     console.log('res', res)
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
-
   })
 })
