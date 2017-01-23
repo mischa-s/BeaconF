@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import reducer from './reducer'
 import request from 'superagent'
 
-const initialState = {
+const state = {
   farms: {
     1: {
       id: 1,
@@ -24,13 +24,12 @@ const initialState = {
   }
 }
 
-const store = createStore(reducer,initialState)
+const store = createStore(reducer, state)
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
   store.subscribe(() => {
-    const state = store.getState(initialState)
-
+    const state = store.getState()
     render(state)
   })
   function render (state) {
@@ -46,8 +45,4 @@ document.addEventListener('DOMContentLoaded', (e) => {
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
 
   })
-
-  store.dispatch({type: 'launch!'})
-
-
 })

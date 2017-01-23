@@ -1,16 +1,11 @@
-module.exports = function (knex) {
-
+module.exports = function(knex) {
   return {
+
     add: function (table, row) {
       return knex(table)
-        .insert(row)
-        .then(() => {
-          return this.find(table, {})
-        })
-    },
-
-    find: function (farms) {
-      return knex(farms).select()
+      .then(() => {
+        return this.find(table, {})
+      })
     },
 
     findById: function (table, id) {
@@ -18,5 +13,11 @@ module.exports = function (knex) {
     },
 
 
+
+    find: function(table) {
+      return knex(table).select()
+    },
+
   }
+
 }
