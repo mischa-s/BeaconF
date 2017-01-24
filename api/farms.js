@@ -17,7 +17,7 @@ module.exports = function(db) {
     db.add('farms', req.body)
       .then((farms) => {
         res.json(farms)
-      }
+      })
     .catch(next)
   }
   return route

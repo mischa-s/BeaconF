@@ -9,17 +9,7 @@ module.exports= reducer
 
       case 'GET_ALL_FARMS':
         newState.farms= action.payload
-        return newState
-
-      case 'ADD_FARM_TO_FARMS':
-      var farm= action.payload
-        newState.farms[farmID] = farm
-        return newState
-
-      case 'DELETE_FARM_FROM_FARMS':
-      var farm= action.payload
-      var farmID = farm.id
-        delete newState.farms[farmID]
+        console.log('New State', newState);
         return newState
 
       default:

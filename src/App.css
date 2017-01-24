@@ -4,25 +4,44 @@ body {
   font-family: sans-serif;
   background-color: #222;
 }
-.listOfFarms {
-  padding-top: 2em;
+h1 {
+  color:  #e6ffb3;
   text-align: center;
-  color: white;
-
+  font-size: 3em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+.map {
+  margin-left: 3%;
+  margin-bottom: 5%;
+  width: 45%;
+  float: left;
 }
 .addFarm {
-  width: 50em;
-  margin: auto;
+  width: 45%;
+  margin-left: 3%;
   padding-bottom: 3em;
+  float: left
 
 }
-
-.eachFarm {
-  font-size: 2em;
-  padding-bottom: 1em;
+.listOfFarms {
+  width: 40%;
+  text-align: center;
+  color: white;
+  float: right;
+  margin-right: 3%;
 }
+  .eachFarm {
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    background-color: #3d442c;
+    margin: auto;
+    border-style: solid;
+    border-width: 1em;
+    border-color: #9ea394;
 
-.img.farmImage{
-  height: 1em;
-
-}
+  }
+    .farmImage img {
+      max-height: 5em;
+      max-width:  10em;
+    }

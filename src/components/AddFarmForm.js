@@ -1,75 +1,58 @@
+
 import React from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const request = require ('superagent')
 
-const SubmitName = React.createClass ({
+const SubmitFarm = React.createClass ({
   handleSubmit: function (e) {
     e.preventDefault()
 
-    const farmName = this.refs.farmName.value
-    const farmLocation = this.refs.farmLocation.value
-    const farmType = this.refs.farmType.value
-    const mainImage = this.refs.mainImage.value
-    // this.props.store.dispatch({type: 'UPDATE_HIGHSCORES', payload: data.body.highScores})
+    const farmName = this.refs.farmName.input.value
+    const farmLocation = this.refs.farmLocation.input.value
+    const farmType = this.refs.farmType.input.value
+    const mainImage = this.refs.mainImage.input.value
 
     if (farmName.length > 0) {
-      request.post('api/v1/farms')
-        .send({name:farmName, location:farmLocation, type:farmType, mainImage:mainImage })
-        .end((err, data) => {
-          console.log('heard back from api', data, err)
-        })
+    request.post('api/v1/farms')
+      .send({name:farmName, location:farmLocation, type:farmType, mainImage:mainImage })
+      .end((err, data) => {
+        console.log('heard back from api', data.body, err)
+        this.props.store.dispatch({type: 'GET_ALL_FARMS', payload: data.body})
+      })
 
-      // this.refs.farmName.value = ''
-      // this.refs.farmLocation.value = ''
-      // this.refs.farmType.value = ''
-      // this.refs.mainImage.value = ''
+      this.refs.farmName.input.value = ''
+      this.refs.farmLocation.input.value = ''
+      this.refs.farmType.input.value = ''
+      this.refs.mainImage.input.value = ''
 
     } else {
       this.refs.farmName.focus()
     }
   },
   render: function () {
-    console.log("state from submit name", state);
-
-    const style = {
-    marginLeft: 20,
-    }
 
     return (
       <div>
-          <Paper zDepth={2}>
-            <TextField hintText="Farm Name" ref='farmName' style={style} underlineShow={true} />
+        <form>
+          <Paper zDepth={5}>
+            <TextField hintText="Farm Name" ref='farmName' fullWidth={true}/>
             <br/>
-            <TextField hintText="Farm Location" ref='farmLocation' style={style} underlineShow={true} />
+            <TextField hintText="Farm Location" ref='farmLocation' fullWidth={true} />
             <br/>
-            <TextField hintText="Type of Farm" ref='farmType' style={style} underlineShow={true} />
+            <TextField hintText="Type of Farm" ref='farmType' fullWidth={true} />
             <br/>
-            <TextField hintText="Image URL" ref='mainImage' style={style} underlineShow={true} />
+            <TextField hintText="Image URL" ref='mainImage' fullWidth={true} />
           </Paper>
+          <br/>
+          <RaisedButton onClick={this.handleSubmit} label="Add Farm" fullWidth={true} />
+        </form>
       </div>
     )
   }
 })
 
 module.exports = SubmitFarm
-
-// return (
-// module.exports = function() {
-//
-//         <div className="container-name">
-//           <form onSubmit={this.handleSubmit}>
-//             <input type='number' ref='score' value ={this.props.state.turnCount}/>
-//             <input type='text' ref='submitText' placeholder='Write your name here' />
-//
-//             <button className='button expanded hollow'>Add Score</button>
-//           </form>
-//         </div>
-//       )
-//
-// }
-//
-
-//value={this.state.name} onChange={e => this.setState({ name: e.target.value })}

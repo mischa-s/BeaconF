@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     )
   }
   request('/api/v1/farms', (err, res) => {
-    console.log('res', res)
+    console.log('Res Body', res.body);
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
   })
 })
