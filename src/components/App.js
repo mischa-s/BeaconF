@@ -11,7 +11,9 @@ import '../App.css'
 import ListOfFarms from './ListOfFarms'
 
 module.exports = function App (props) {
-   injectTapEventPlugin();
+const { farms } = props.state
+  console.log('farms', farms);
+
     return (
       <div>
         <h1>Beacon Farms</h1>
@@ -19,7 +21,7 @@ module.exports = function App (props) {
         <GoogleMap />
         </div>
         <div>
-        <ListOfFarms farms={props.state.farms} />
+          <ListOfFarms farms={farms} />
         </div>
         <div className = 'addFarm'>
           <MuiThemeProvider>

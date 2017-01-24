@@ -38,14 +38,14 @@ const SubmitFarm = React.createClass ({
     return (
       <div>
         <form>
-          <Paper zDepth={5}>
-            <TextField hintText="Farm Name" ref='farmName' fullWidth={true}/>
+          <Paper className= 'paper' zDepth={3}>
+            <TextField hintText="Farm Name" className= 'input' ref='farmName' fullWidth={true}/>
             <br/>
-            <TextField hintText="Farm Location" ref='farmLocation' fullWidth={true} />
+            <TextField hintText="Farm Location" className= 'input' ref='farmLocation' fullWidth={true} />
             <br/>
-            <TextField hintText="Type of Farm" ref='farmType' fullWidth={true} />
+            <TextField hintText="Type of Farm" className= 'input' ref='farmType' fullWidth={true} />
             <br/>
-            <TextField hintText="Image URL" ref='mainImage' fullWidth={true} />
+            <TextField hintText="Image URL" className= 'input' ref='mainImage' fullWidth={true} />
           </Paper>
           <br/>
           <RaisedButton onClick={this.handleSubmit} label="Add Farm" fullWidth={true} />

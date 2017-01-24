@@ -22,8 +22,10 @@ h1 {
   margin-left: 3%;
   padding-bottom: 3em;
   float: left
-
 }
+  .paper {
+    padding: 2em;
+  }
 .listOfFarms {
   width: 40%;
   text-align: center;

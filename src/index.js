@@ -29,10 +29,12 @@ const store = createStore(reducer, state)
 document.addEventListener('DOMContentLoaded', (e) => {
 
   store.subscribe(() => {
+    console.log('state updated', store.getState());
     const state = store.getState()
     render(state)
   })
   function render (state) {
+    console.log("render");
     const root = document.querySelector('#app')
     ReactDOM.render(
       <App state={state} store={store}/>,
