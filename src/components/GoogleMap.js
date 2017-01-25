@@ -1,5 +1,30 @@
 import React from 'react'
 
+// // This event listener will call addMarker() when the map is clicked.
+// map.addListener('click', function(event) {
+//   addMarker(event.latLng);
+// });
+
+// Adds a marker to the map and push to the array.
+// function addMarker(location) {
+//         var marker = new google.maps.Marker({
+//           position: location,
+//           map: map
+//         });
+//         markers.push(marker);
+//       }
+
+// Sets the map on all markers in the array.
+//       function setMapOnAll(map) {
+//         for (var i = 0; i < markers.length; i++) {
+//           markers[i].setMap(map);
+//         }
+//       }
+// Shows any markers currently in the array.
+// function showMarkers() {
+//   setMapOnAll(map);
+// }
+
 const EIFFEL_TOWER_POSITION = {
   lat: 48.858608,
   lng: 2.294471
