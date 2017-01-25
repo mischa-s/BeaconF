@@ -45,7 +45,6 @@ const TableHurst = {
 }
 
 export default class Map extends React.Component {
-
   componentDidMount () {
     this.map = new google.maps.Map(this.refs.map, {
       center: EIFFEL_TOWER_POSITION,

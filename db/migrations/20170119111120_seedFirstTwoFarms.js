@@ -6,6 +6,8 @@ exports.up = function (knex, Promise) {
     table.string('location')
     table.string('type')
     table.string('mainImage')
+    table.decimal('latitude')
+    table.decimal('longitude')
     table.timestamps()
   })
 }

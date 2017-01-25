@@ -6,28 +6,26 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import GoogleMap from './GoogleMap'
 import '../App.css'
 
-
-
 import ListOfFarms from './ListOfFarms'
 
 module.exports = function App (props) {
-const { farms } = props.state
-  console.log('farms', farms);
+  const { farms } = props.state
+  console.log('farms', farms)
 
-    return (
-      <div>
-        <h1>Beacon Farms</h1>
-        <div className='map'>
-        <GoogleMap />
-        </div>
-        <div>
-          <ListOfFarms farms={farms} />
-        </div>
-        <div className = 'addFarm'>
-          <MuiThemeProvider>
-            < AddFarmForm store={props.store}/>
-          </MuiThemeProvider>
-        </div>
+  return (
+    <div>
+      <h1>Beacon Farms</h1>
+      <div className='map'>
+        <GoogleMap farms={farms} />
       </div>
-    );
+      <div>
+        <ListOfFarms farms={farms} />
+      </div>
+      <div className='addFarm'>
+        <MuiThemeProvider>
+          < AddFarmForm store={props.store} />
+        </MuiThemeProvider>
+      </div>
+    </div>
+  )
 }
