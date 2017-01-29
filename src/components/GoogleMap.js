@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 // // This event listener will call addMarker() when the map is clicked.
 // map.addListener('click', function(event) {
@@ -44,7 +45,7 @@ const TableHurst = {
   lng: 0.0442316
 }
 
-export default class Map extends React.Component {
+class Map extends React.Component {
   componentDidMount () {
     this.map = new google.maps.Map(this.refs.map, {
       center: EIFFEL_TOWER_POSITION,
@@ -80,4 +81,5 @@ export default class Map extends React.Component {
     )
   }
 
-};
+}
+module.exports = connect((state) => state)(Map)

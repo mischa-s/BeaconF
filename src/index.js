@@ -1,48 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import { createStore } from 'redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import reducer from './reducer'
 import request from 'superagent'
+import initialState from '../state'
 
-const state = {
-  farms: {
-    1: {
-      id: 1,
-      name: 'Skilleby',
-      location: 'Sweden',
-      type: 'Small Holding',
-      mainImageURL: 'http://www.skillebytradgard.se/wp-content/uploads/2016/06/cropped-SK-TR-LOGO-kopia-3.png'
-    },
-    2: {
-        id: 2,
-        name: 'Triple H Beef',
-        location: 'Canada',
-        type: 'Cattle Ranch',
-        mainImageURL: 'http://www.triple-h-beef.com/images/grazing-cows-for-email.jpg'
-    }
-  }
+import App from './components/App'
+
+const store = createStore(reducer, initialState)
+store.subscribe(() => {
+})
+
+const Root = ({store}) => {
+  return (
+    <Provider store={store}>
+      <Router history={hashHistory}>
+        <Route path='/' component={App}>
+          <IndexRoute component={App} />
+        </Route>
+      </Router>
+    </Provider>
+  )
 }
-
-const store = createStore(reducer, state)
-
 document.addEventListener('DOMContentLoaded', (e) => {
-
-  store.subscribe(() => {
-    console.log('state updated', store.getState());
-    const state = store.getState()
-    render(state)
-  })
-  function render (state) {
-    console.log("render");
-    const root = document.querySelector('#app')
-    ReactDOM.render(
-      <App state={state} store={store}/>,
+  const root = document.querySelector('#app')
+  ReactDOM.render(
+    <Root store={store} />,
       root
     )
-  }
   request('/api/v1/farms', (err, res) => {
-    console.log('Res Body', res.body);
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
   })
 })
