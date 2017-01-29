@@ -45,28 +45,29 @@ const TableHurst = {
 }
 
 export default class Map extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     this.map = new google.maps.Map(this.refs.map, {
       center: EIFFEL_TOWER_POSITION,
       zoom: 2
-    })
+    });
 
     var marker = new google.maps.Marker({
-      position: Skilleby,
-      map: this.map,
-      title: 'Skilleby!'
-    })
+        position: Skilleby,
+        map: this.map,
+        title: 'Skilleby!'
+    });
 
     var marker = new google.maps.Marker({
-      position: TripleHBeef,
-      map: this.map,
-      title: 'Triple H Beef!'
-    })
+        position: TripleHBeef,
+        map: this.map,
+        title: 'Triple H Beef!'
+    });
     var marker = new google.maps.Marker({
-      position: TableHurst,
-      map: this.map,
-      title: 'Table Hurst!'
-    })
+        position: TableHurst,
+        map: this.map,
+        title: 'Table Hurst!'
+    });
+
   }
 
   render () {
