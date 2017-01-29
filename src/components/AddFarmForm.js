@@ -1,8 +1,8 @@
-
 import React from 'react'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import { connect } from 'react-redux'
 
 const request = require('superagent')
 
@@ -20,7 +20,7 @@ const SubmitFarm = React.createClass({
       .send({ name: farmName, location: farmLocation, type: farmType, mainImage: mainImage })
       .end((err, data) => {
         console.log('heard back from api', data.body, err)
-        this.props.store.dispatch({type: 'GET_ALL_FARMS', payload: data.body})
+        this.props.dispatch({type: 'GET_ALL_FARMS', payload: data.body})
       })
 
       this.refs.farmName.input.value = ''
@@ -52,4 +52,4 @@ const SubmitFarm = React.createClass({
   }
 })
 
-module.exports = SubmitFarm
+module.exports = connect((state) => state)(SubmitFarm)

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
 import AddFarmForm from './AddFarmForm'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -8,8 +8,9 @@ import '../App.css'
 
 import ListOfFarms from './ListOfFarms'
 
-module.exports = function App (props) {
-  const { farms } = props.state
+const App = (props) => {
+  const {farms} = props
+  console.log('props', props)
   console.log('farms', farms)
 
   return (
@@ -29,3 +30,5 @@ module.exports = function App (props) {
     </div>
   )
 }
+
+module.exports = connect((state) => state)(App)
