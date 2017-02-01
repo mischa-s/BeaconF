@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
   const root = document.querySelector('#app')
   ReactDOM.render(
     <Root store={store} />,
-      root
-    )
+    root
+  )
   request('/api/v1/farms', (err, res) => {
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
   })

@@ -13,11 +13,12 @@ const SubmitFarm = React.createClass({
     const farmName = this.refs.farmName.input.value
     const farmLocation = this.refs.farmLocation.input.value
     const farmType = this.refs.farmType.input.value
+    const farmLatitude = this.refs.farmLatitude.input.value
+    const farmLongitude = this.refs.farmLongitude.input.value
     const mainImage = this.refs.mainImage.input.value
-
     if (farmName.length > 0) {
       request.post('api/v1/farms')
-      .send({ name: farmName, location: farmLocation, type: farmType, mainImage: mainImage })
+      .send({ name: farmName, location: farmLocation, type: farmType, mainImage: mainImage, longitude: farmLongitude, latitude: farmLatitude })
       .end((err, data) => {
         console.log('heard back from api', data.body, err)
         this.props.dispatch({type: 'GET_ALL_FARMS', payload: data.body})
@@ -26,6 +27,8 @@ const SubmitFarm = React.createClass({
       this.refs.farmName.input.value = ''
       this.refs.farmLocation.input.value = ''
       this.refs.farmType.input.value = ''
+      this.refs.farmLatitude.input.value = ''
+      this.refs.farmLongitude.input.value = ''
       this.refs.mainImage.input.value = ''
     } else {
       this.refs.farmName.focus()
@@ -39,6 +42,10 @@ const SubmitFarm = React.createClass({
             <TextField hintText='Farm Name' className='input' ref='farmName' fullWidth={true} />
             <br />
             <TextField hintText='Farm Location' className='input' ref='farmLocation' fullWidth={true} />
+            <br />
+            <TextField hintText='Farm Latitude' className='input' ref='farmLatitude' fullWidth={true} />
+            <br />
+            <TextField hintText='Farm Longitude' className='input' ref='farmLongitude' fullWidth={true} />
             <br />
             <TextField hintText='Type of Farm' className='input' ref='farmType' fullWidth={true} />
             <br />
