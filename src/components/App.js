@@ -10,17 +10,15 @@ import ListOfFarms from './ListOfFarms'
 
 const App = (props) => {
   const {farms} = props
-  console.log('props', props)
-  console.log('farms', farms)
 
   return (
     <div>
       <h1>Beacon Farms</h1>
       <div className='map'>
-        <GoogleMap farms={farms} />
+        <GoogleMap farms={farms}/>
       </div>
       <div>
-        <ListOfFarms farms={farms} />
+        <ListOfFarms props={props} />
       </div>
       <div className='addFarm'>
         <MuiThemeProvider>
