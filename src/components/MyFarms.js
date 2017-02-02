@@ -4,6 +4,7 @@ import '../App.css'
 const { Link } = require('react-router')
 
 const MyFarms = (props) => {
+
   console.log('props in my farms', props)
   const loggedIn = props.loggedIn
   const hidden =
@@ -14,7 +15,7 @@ const MyFarms = (props) => {
   )
   const pushToHome =
   (
-    <h1> Please <Link to={'/'}> Login </Link> to view this page</h1>
+    <h1> Please login to view this page</h1>
   )
   return loggedIn
     ? hidden
