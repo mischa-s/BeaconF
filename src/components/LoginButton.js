@@ -6,13 +6,13 @@ const LoginButton = (props) => {
   const loginButton =
   (
     <div className='button'>
-      <RaisedButton onClick={props.dispatch({type: 'SHOWING_LOGIN'})}> Login </RaisedButton>
+      <RaisedButton onClick={() => props.dispatch({type: 'SHOWING_LOGIN'})}> Login </RaisedButton>
     </div>
   )
   const logoutButton =
   (
     <div className='button'>
-      <RaisedButton>Logout</RaisedButton>
+      <RaisedButton onClick={() => props.dispatch({type: 'LOGIN'})}> Logout </RaisedButton>
     </div>
   )
   return loggedIn

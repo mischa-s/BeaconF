@@ -1,13 +1,13 @@
 const express = require('express')
 const route = express.Router()
 
-// route.get('/myfarms', checkAuthenticated, get)
 module.exports = function (db) {
   route.get('/', get)
   route.post('/', post)
   route.post('/login', login)
 
   function login (req, res, next) {
+    console.log('req body', req.body)
     req.session.userName = req.body.name
     res.json({response: req.session.userName})
   }
@@ -18,6 +18,8 @@ module.exports = function (db) {
         res.json(farms)
       })
   }
+
+  // route.get('/myfarms', checkAuthenticated, get)
 
   // function checkAuthenticated (req, res, next) {
   //   if (req.session.userName) {
