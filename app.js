@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const path = require('path')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
@@ -37,12 +38,23 @@ module.exports = function (db) {
     }))
   }
 
+  app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
+
 
   // static files
   app.use('/', express.static(path.join(__dirname, 'public')))
 
   // routes
   app.use('/api/v1/farms', api.farms(db))
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  })
+
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {

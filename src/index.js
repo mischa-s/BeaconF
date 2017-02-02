@@ -1,13 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import reducer from './reducer'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import request from 'superagent'
+import reducer from './reducer'
 import initialState from '../state'
 
 import App from './components/App'
+import MyFarms from './components/MyFarms'
+import Login from './components/Login'
+import Home from './components/Home'
 
 const store = createStore(reducer, initialState)
 store.subscribe(() => {
@@ -15,13 +19,17 @@ store.subscribe(() => {
 
 const Root = ({store}) => {
   return (
-    <Provider store={store}>
-      <Router history={hashHistory}>
-        <Route path='/' component={App}>
-          <IndexRoute component={App} />
-        </Route>
-      </Router>
-    </Provider>
+    <MuiThemeProvider>
+      <Provider store={store}>
+        <Router history={browserHistory}>
+          <Route path='/' component={App}>
+            <IndexRoute component = {Home} />
+            <Route path ='/myfarms' component={MyFarms} />
+            <Route path ='/login' component={Login} />
+          </Route>
+        </Router>
+      </Provider>
+    </MuiThemeProvider>
   )
 }
 document.addEventListener('DOMContentLoaded', (e) => {

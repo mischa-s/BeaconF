@@ -18,8 +18,8 @@ const SubmitFarm = React.createClass({
     const mainImage = this.refs.mainImage.input.value
     if (farmName.length > 0) {
       request.post('api/v1/farms')
-      .send({ name: farmName, location: farmLocation, type: farmType, mainImage: mainImage, longitude: farmLongitude, latitude: farmLatitude })
-      .end((err, data) => {
+        .send({ name: farmName, location: farmLocation, type: farmType, mainImage: mainImage, longitude: farmLongitude, latitude: farmLatitude })
+        .end((err, data) => {
         console.log('heard back from api', data.body, err)
         this.props.dispatch({type: 'GET_ALL_FARMS', payload: data.body})
       })

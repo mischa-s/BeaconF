@@ -4,14 +4,13 @@ import '../App.css'
 
 import ListOfFarms from './ListOfFarms'
 
-const individualFarm = (props) => {
-  const {farms} = props
-
+const MyFarms = (props) => {
+  
   return (
     <div>
-
+      <h1> This is a secure route </h1>
     </div>
   )
 }
 
-module.exports = connect((state) => state)(individualFarm)
+module.exports = connect((state) => state)(MyFarms)
