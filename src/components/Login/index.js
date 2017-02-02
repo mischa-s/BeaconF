@@ -35,13 +35,10 @@ class Login extends React.Component {
     request.post('/api/v1/farms/login')
       .send({name: name, password: password})
       .end((err, res) => {
-        console.log('whats with this', res.body)
         if (err) console.log('error', err)
         else if (res.body.response) {
-          console.log('here is the log')
           dispatch({type: 'LOGIN', payload: res.body.response})
         } else {
-          console.log('yup')
           dispatch({type: 'LOGIN', payload: false})
         }
       })
