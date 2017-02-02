@@ -5,14 +5,14 @@ const route = express.Router()
 module.exports = function(db) {
 
   route.get('/', get)
+  route.get('/myfarms', checkAuthenticated, get)
   route.post('/', post)
   route.post('/login', login)
 
 
   function login (req, res, next) {
-    req.session.userName = 'thisUser'
-    console.log('this is req.session.userName', req.session.userName)
-    res.json(req.session.userName)
+    req.session.userName = req.body.name
+    res.json({response: req.session.userName})
   }
 
   function get (req, res, next) {

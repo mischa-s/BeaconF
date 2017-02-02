@@ -9,8 +9,11 @@ module.exports= reducer
 
       case 'GET_ALL_FARMS':
         newState.farms= action.payload
-        console.log('New State', newState);
         return newState
+      case 'LOGIN':
+        newState.loggedIn = action.payload
+      case 'SHOWING_LOGIN':
+        newState.showingLogin = !newState.showingLogin
 
       default:
         return newState

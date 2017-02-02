@@ -1,16 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+const React = require('react')
+const { connect } = require('react-redux')
 import '../App.css'
-import Home from './Home'
+const LoginShowing = require('./LoginShowing')
 
 const App = (props) => {
-  const {farms} = props
-  console.log('location', props);
   return (
     <div>
-      <h1>Beacon Farms</h1>
+      <div className='appBar'>
+        <h1>Beacon Farms</h1>
+        <LoginShowing {...props} />
+      </div>
       {props.children}
     </div>
   )

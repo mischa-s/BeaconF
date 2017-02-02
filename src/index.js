@@ -25,8 +25,8 @@ const Root = ({store}) => {
           <Route path='/' component={App}>
             <IndexRoute component = {Home} />
             <Route path ='/myfarms' component={MyFarms} />
-            <Route path ='/login' component={Login} />
           </Route>
+          <Route path ='/login' component={Login} />
         </Router>
       </Provider>
     </MuiThemeProvider>
