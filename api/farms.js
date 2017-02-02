@@ -1,14 +1,11 @@
-const express = require("express")
+const express = require('express')
 const route = express.Router()
 
-
-module.exports = function(db) {
-
+// route.get('/myfarms', checkAuthenticated, get)
+module.exports = function (db) {
   route.get('/', get)
-  route.get('/myfarms', checkAuthenticated, get)
   route.post('/', post)
   route.post('/login', login)
-
 
   function login (req, res, next) {
     req.session.userName = req.body.name
@@ -22,15 +19,15 @@ module.exports = function(db) {
       })
   }
 
-  function checkAuthenticated (req, res, next) {
-    if(req.session.userName){
-      next()
-    } else {
-      res.send('get outta heeeere!')
-    }
-  }
+  // function checkAuthenticated (req, res, next) {
+  //   if (req.session.userName) {
+  //     next()
+  //   } else {
+  //     res.send('get outta heeeere!')
+  //   }
+  // }
 
-  function post(req, res, next) {
+  function post (req, res, next) {
     db.add('farms', req.body)
       .then((farms) => {
         res.json(farms)

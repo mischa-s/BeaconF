@@ -22,24 +22,23 @@ class Login extends React.Component {
           </div>
         </form>
       </div>
-    console.log('render props', this.props)
     return (
       loginForm
     )
   }
   handleLoginSubmit (e) {
+    const { dispatch } = this.props
     const name = this.refs.name.input.value
     const password = this.refs.password.input.value
 
-    this.dispatch({type: 'LOGIN', payload: 'loading'})
     request.post('/api/v1/farms/login')
       .send({name: name, password: password})
       .end((err, res) => {
         if (err) console.log('error', err)
         else if (res.body.text === true) {
-          this.dispatch({type: 'LOGIN', payload: res.body.text})
+          dispatch({type: 'LOGIN', payload: res.body.text})
         } else {
-          this.dispatch({type: 'LOGIN', payload: false})
+          dispatch({type: 'LOGIN', payload: false})
         }
       })
   }

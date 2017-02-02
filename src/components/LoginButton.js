@@ -1,6 +1,5 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
-const { Link } = require('react-router')
 
 const LoginButton = (props) => {
   const loggedIn = props.loggedIn

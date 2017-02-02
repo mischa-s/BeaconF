@@ -6,7 +6,7 @@ const LoginShowing = (props) => {
   const showing = props.showingLogin
   const loginShowing =
   (
-    <LoginForm />
+    <LoginForm {...props} />
   )
 
   const loginNotShowing =
