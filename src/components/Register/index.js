@@ -1,5 +1,5 @@
 const React = require('react')
-const LoginForm = require('./Login')
+const LoginForm = require('./index')
 const ShowLoginOrLogoutButton = require('./ShowLoginOrLogoutButton')
 
 const LoginShowing = (props) => {

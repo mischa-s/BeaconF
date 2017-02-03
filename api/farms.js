@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router()
-
+const bcrypt = require('bcryptjs')
 module.exports = function (db) {
   route.get('/', get)
   route.post('/', post)
@@ -8,11 +8,17 @@ module.exports = function (db) {
   route.post('/login', login)
 
   function login (req, res, next) {
-    const email = req.body.email
+    const userName = req.body.userName
     const password = req.body.password
-    console.log('email and password', email, password)
-    req.session.userName = req.body.name
-    res.json({response: req.session.userName})
+    db.getUserByUserName(userName)
+      .then(user => {
+        if(!user[0]) {
+          res.json({error: 'Invalid Email/Password'})
+        } else {
+          req.session.userName = req.body.userName
+          res.json({response: req.session.userName})
+        }
+      })
   }
 
   function get (req, res, next) {

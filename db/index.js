@@ -10,6 +10,11 @@ module.exports = function (knex) {
 
     find: function (table) {
       return knex(table).select()
+    },
+    getUserByUserName: function (userName) {
+      return knex('users')
+        .select()
+        .where('name', userName)
     }
 
   }

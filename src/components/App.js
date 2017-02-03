@@ -1,7 +1,7 @@
 const React = require('react')
 const { connect } = require('react-redux')
 import '../App.css'
-const LoginShowing = require('./LoginShowing')
+const LoginShowing = require('./Login/LoginShowing')
 
 const App = (props) => {
   return (
