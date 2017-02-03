@@ -1,6 +1,6 @@
 const React = require('react')
 const LoginForm = require('./Login')
-const LoginButton = require('./LoginButton')
+const ShowLoginOrLogoutButton = require('./ShowLoginOrLogoutButton')
 
 const LoginShowing = (props) => {
   const showing = props.showingLogin
@@ -11,7 +11,7 @@ const LoginShowing = (props) => {
 
   const loginNotShowing =
   (
-    <LoginButton {...props} />
+    <ShowLoginOrLogoutButton {...props} />
   )
   return showing
     ? loginNotShowing

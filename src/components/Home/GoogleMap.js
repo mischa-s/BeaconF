@@ -14,7 +14,6 @@ class Map extends React.Component {
   }
 
   componentDidUpdate () {
-    console.log('map props', this.props)
     const farms = this.props.farms
     const arrOfFarms = farms.map((farm) => {
       return new google.maps.Marker({

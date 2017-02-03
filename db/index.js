@@ -1,4 +1,4 @@
-module.exports = function(knex) {
+module.exports = function (knex) {
   return {
 
     add: function (table, farm) {
@@ -8,10 +8,9 @@ module.exports = function(knex) {
       })
     },
 
-    find: function(table) {
+    find: function (table) {
       return knex(table).select()
-    },
+    }
 
   }
-
 }

@@ -1,21 +1,22 @@
-const clone = require ('clone')
+const clone = require('clone')
 
-module.exports= reducer
+module.exports = reducer
 
-  function reducer (state, action) {
+function reducer (state, action) {
+  const newState = clone(state)
+  // console.log('tell me you arrived at the reducer')
+  switch (action.type) {
 
-    const newState = clone(state)
-    switch (action.type) {
+    case 'GET_ALL_FARMS':
+      newState.farms = action.payload
+      return newState
+    case 'LOGIN':
+      newState.loggedIn = action.payload
 
-      case 'GET_ALL_FARMS':
-        newState.farms= action.payload
-        return newState
-      case 'LOGIN':
-        newState.loggedIn = action.payload
-      case 'SHOWING_LOGIN':
-        newState.showingLogin = !newState.showingLogin
+    case 'SHOWING_LOGIN':
+      newState.showingLogin = !newState.showingLogin
 
-      default:
-        return newState
-    }
+    default:
+      return newState
   }
+}

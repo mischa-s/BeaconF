@@ -38,7 +38,6 @@ class Login extends React.Component {
         if (err) console.log('error', err)
         else if (res.body.response) {
           dispatch({type: 'LOGIN', payload: res.body.response})
-          dispatch({type: 'SHOWING_LOGIN'})
         } else {
           dispatch({type: 'LOGIN', payload: false})
         }

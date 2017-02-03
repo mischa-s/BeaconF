@@ -4,8 +4,6 @@ import '../App.css'
 const { Link } = require('react-router')
 
 const MyFarms = (props) => {
-
-  console.log('props in my farms', props)
   const loggedIn = props.loggedIn
   const hidden =
   (

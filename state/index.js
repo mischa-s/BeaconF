@@ -1,6 +1,5 @@
 module.exports = {
-  farms: {
-  },
+  farms: [],
   loggedIn: null,
   showingLogin: false
 }

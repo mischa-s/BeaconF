@@ -41,13 +41,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
   request('/api/v1/farms', (err, res) => {
     store.dispatch({type: 'GET_ALL_FARMS', payload: res.body})
   })
-  request.post('/api/v1/farms/login')
-    .end((err, res) => {
-      if (err) console.log('error', err)
-      else if (res.body.response) {
-        store.dispatch({type: 'LOGIN', payload: res.body.response})
-      } else {
-        store.dispatch({type: 'LOGIN', payload: false})
-      }
-    })
+  request('/api/v1/farms/checkAuthenticated', (err, res) => {
+		if (err) console.log('error', err)
+		else if (res.body.response) {
+			console.log('response', res);
+			store.dispatch({type: 'LOGIN', payload: res.body.response})
+		} else {
+			console.log('Not Authenticated');
+			store.dispatch({type: 'LOGIN', payload: null})
+		}
+	})
 })
