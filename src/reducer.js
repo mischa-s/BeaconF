@@ -10,14 +10,26 @@ function reducer (state, action) {
     case 'GET_ALL_FARMS':
       newState.farms = action.payload
       return newState
+
     case 'LOGIN':
       newState.loggedIn = action.payload
+      return newState
 
     case 'SHOWING_LOGIN':
-      newState.showingLogin = !newState.showingLogin
+      newState.showingLogin = true
+      return newState
+
+    case 'HIDING_LOGIN':
+      newState.showingLogin = false
+      return newState
 
     case 'SHOWING_REGISTER':
-      newState.showingRegister = !newState.showingRegister
+      newState.showingRegister = true
+      return newState
+
+    case 'HIDING_REGISTER':
+      newState.showingRegister = false
+      return newState
 
     default:
       return newState

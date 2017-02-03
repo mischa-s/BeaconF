@@ -26,7 +26,7 @@ module.exports = function (knex) {
       .insert(formattedData)
       .then(function (ids) {
         return knex(table)
-        .select('name', 'id')
+        .select('name','id')
         .where({id: ids[0]})
       })
     }

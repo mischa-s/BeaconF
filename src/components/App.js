@@ -5,6 +5,7 @@ const LoginShowing = require('./Login')
 const RegisterShowing = require('./Register')
 
 const App = (props) => {
+  console.log('app props', props);
   return (
     <div>
       <div className='appBar'>

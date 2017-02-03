@@ -38,9 +38,10 @@ class Register extends React.Component {
         if (err) console.log('error', err)
         else if (res.body.response) {
           dispatch({type: 'LOGIN', payload: res.body.response})
+          dispatch({type: 'HIDING_REGISTER'})
         } else {
-          console.log("register didn't work")
-          dispatch({type: 'LOGIN', payload: false})
+          console.log("register didn't work", res.body)
+          dispatch({type: 'LOGIN', payload: null})
         }
       })
   }

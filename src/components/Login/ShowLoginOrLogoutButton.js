@@ -1,19 +1,18 @@
-import React from 'react'
-import RaisedButton from 'material-ui/RaisedButton'
+const React = require('react')
+const RaisedButton = require('material-ui/RaisedButton')
+const request = require('superagent')
+const Logout = require ('./Logout')
 
 const LoginButton = (props) => {
+  const { dispatch } = props
   const loggedIn = props.loggedIn
 
   function login () {
-    props.dispatch({type: 'SHOWING_LOGIN'})
-  }
-  function logout () {
-    props.dispatch({type: 'LOGIN', payload: null})
-    props.dispatch({type: 'SHOWING_LOGIN'})
+    dispatch({type: 'SHOWING_LOGIN'})
   }
 
   return loggedIn
-    ? <RaisedButton onClick={logout}>Logout</RaisedButton>
-    : <RaisedButton onClick={login}> Login </RaisedButton>
+    ? <Logout {...props} />
+    : <button onClick={login}> Login </button>
 }
 module.exports = (LoginButton)
