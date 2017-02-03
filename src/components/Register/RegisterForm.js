@@ -7,7 +7,7 @@ import Paper from 'material-ui/Paper'
 
 class Register extends React.Component {
   render () {
-    const registerForm =
+    return (
       <div>
         <form>
           <Paper className='paper' zDepth={3}>
@@ -24,9 +24,6 @@ class Register extends React.Component {
           </div>
         </form>
       </div>
-
-    return (
-      registerForm
     )
   }
   handleLoginSubmit (e) {

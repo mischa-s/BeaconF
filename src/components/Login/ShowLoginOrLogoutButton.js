@@ -12,20 +12,8 @@ const LoginButton = (props) => {
     props.dispatch({type: 'SHOWING_LOGIN'})
   }
 
-  const loginButton =
-  (
-    <div className='button'>
-      <RaisedButton onClick={login}> Login </RaisedButton>
-    </div>
-  )
-  const logoutButton =
-  (
-    <div className='button' >
-      <RaisedButton onClick={logout}>Logout</RaisedButton>
-    </div>
-  )
   return loggedIn
-    ? logoutButton
-    : loginButton
+    ? <RaisedButton onClick={logout}>Logout</RaisedButton>
+    : <RaisedButton onClick={login}> Login </RaisedButton>
 }
 module.exports = (LoginButton)

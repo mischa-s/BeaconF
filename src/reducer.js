@@ -16,6 +16,9 @@ function reducer (state, action) {
     case 'SHOWING_LOGIN':
       newState.showingLogin = !newState.showingLogin
 
+    case 'SHOWING_REGISTER':
+      newState.showingRegister = !newState.showingRegister
+
     default:
       return newState
   }

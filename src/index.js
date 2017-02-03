@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 			console.log('response', res);
 			store.dispatch({type: 'LOGIN', payload: res.body.response})
 		} else {
-			console.log('Not Authenticated');
-			store.dispatch({type: 'LOGIN', payload: null})
+      console.log('Not Authenticated');
+			// store.dispatch({type: 'LOGIN', payload: null})
 		}
 	})
 })

@@ -1,20 +1,10 @@
 const React = require('react')
-const LoginForm = require('./index')
+const LoginForm = require('./LoginForm')
 const ShowLoginOrLogoutButton = require('./ShowLoginOrLogoutButton')
 
 const LoginShowing = (props) => {
-  const showing = props.showingLogin
-  const loginShowing =
-  (
-    <LoginForm {...props} />
-  )
-
-  const loginNotShowing =
-  (
-    <ShowLoginOrLogoutButton {...props} />
-  )
-  return showing
-    ? loginNotShowing
-    : loginShowing
+  return props.showingLogin
+    ? <LoginForm {...props} />
+    : <ShowLoginOrLogoutButton {...props} />
 }
 module.exports = (LoginShowing)
