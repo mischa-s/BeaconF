@@ -1,30 +1,19 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import AddFarmForm from './AddFarmForm'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import GoogleMap from './GoogleMap'
+const React = require('react')
+const { connect } = require('react-redux')
 import '../App.css'
-
-import ListOfFarms from './ListOfFarms'
+const LoginShowing = require('./Login')
+const RegisterShowing = require('./Register')
 
 const App = (props) => {
-  const {farms} = props
-
+  console.log('app props', props);
   return (
     <div>
-      <h1>Beacon Farms</h1>
-      <div className='map'>
-        <GoogleMap farms={farms}/>
+      <div className='appBar'>
+        <h1>Beacon Farms</h1>
+        <LoginShowing {...props} />
+        <RegisterShowing {...props} />
       </div>
-      <div>
-        <ListOfFarms props={props} />
-      </div>
-      <div className='addFarm'>
-        <MuiThemeProvider>
-          < AddFarmForm store={props.store} />
-        </MuiThemeProvider>
-      </div>
+      {props.children}
     </div>
   )
 }

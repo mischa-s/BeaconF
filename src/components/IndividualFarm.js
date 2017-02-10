@@ -1,13 +1,17 @@
-import React from 'react';
-import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
+import React from 'react'
+import { connect } from 'react-redux'
+import '../App.css'
 
+import ListOfFarms from './ListOfFarms'
 
-module.exports = function() {
-    return (
+const individualFarm = (props) => {
+  const {farms} = props
+
+  return (
     <div>
-      
+
     </div>
-    )
+  )
 }
+
+module.exports = connect((state) => state)(individualFarm)
