@@ -27,7 +27,7 @@ const SubmitFarm = React.createClass({
       this.refs.farmName.input.value = ''
       this.refs.farmLocation.input.value = ''
       this.refs.farmType.input.value = ''
-      this.refs.farmLatitude.input.value = ''
+      this.refs.farmLocation.input.value = ''
       this.refs.farmLongitude.input.value = ''
       this.refs.mainImage.input.value = ''
     } else {
@@ -43,9 +43,7 @@ const SubmitFarm = React.createClass({
             <br />
             <TextField hintText='Farm Location' className='input' ref='farmLocation' fullWidth={true} />
             <br />
-            <TextField hintText='Farm Latitude' className='input' ref='farmLatitude' fullWidth={true} />
-            <br />
-            <TextField hintText='Farm Longitude' className='input' ref='farmLongitude' fullWidth={true} />
+            <TextField hintText='Farm Location' className='input' ref='farmLocation' fullWidth={true} />
             <br />
             <TextField hintText='Type of Farm' className='input' ref='farmType' fullWidth={true} />
             <br />

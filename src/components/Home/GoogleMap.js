@@ -15,6 +15,7 @@ class Map extends React.Component {
 
   componentDidUpdate () {
     const farms = this.props.farms
+    const forGeocoding = this.props.forGeocoding
     const arrOfFarms = farms.map((farm) => {
       return new google.maps.Marker({
         position: {lat: farm.latitude, lng: farm.longitude},
@@ -22,7 +23,22 @@ class Map extends React.Component {
         title: farm.name
       })
     })
+    this.FindLatLong(forGeocoding, function (result) {
+      console.log(result, 'geocodeAddress result')
+    })
     return arrOfFarms
+  }
+
+  FindLatLong (address, callback) {
+    var geocoder = new google.maps.Geocoder()
+    geocoder.geocode({ 'address': address }, function (results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        console.log(results[0].geometry.location, 'result?')
+        var lat = results[0].geometry.location.lat()
+        var lng = results[0].geometry.location.lng()
+        callback({ Status: "OK", Latitude: lat, Longitude: lng })
+      }
+    })
   }
 
   render () {
