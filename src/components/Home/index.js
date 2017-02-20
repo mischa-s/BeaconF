@@ -8,7 +8,7 @@ import ListOfFarms from './ListOfFarms'
 import MyFarmsButton from './MyFarmsButton'
 
 const Home = (props) => {
-  const {farms} = props
+  const {farms, geocoderResult, forGeocoding} = props
 
   return (
     <div>
@@ -16,7 +16,7 @@ const Home = (props) => {
         < MyFarmsButton {...props} />
       </div>
       <div className='map'>
-        <GoogleMap farms={farms} />
+        <GoogleMap farms={farms} forGeocoding={forGeocoding} geocoderResult={geocoderResult} />
       </div>
       <div>
         <ListOfFarms props={props} />

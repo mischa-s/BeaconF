@@ -1,5 +1,4 @@
 const React = require('react')
-
 const EIFFEL_TOWER_POSITION = {
   lat: 48.858608,
   lng: 2.294471
@@ -15,6 +14,7 @@ class Map extends React.Component {
 
   componentDidUpdate () {
     const farms = this.props.farms
+    const forGeocoding = this.props.forGeocoding
     const arrOfFarms = farms.map((farm) => {
       return new google.maps.Marker({
         position: {lat: farm.latitude, lng: farm.longitude},
@@ -38,28 +38,3 @@ class Map extends React.Component {
 
 }
 module.exports = (Map)
-
-// // This event listener will call addMarker() when the map is clicked.
-// map.addListener('click', function(event) {
-//   addMarker(event.latLng);
-// });
-
-// Adds a marker to the map and push to the array.
-// function addMarker(location) {
-//         var marker = new google.maps.Marker({
-//           position: location,
-//           map: map
-//         });
-//         markers.push(marker);
-//       }
-
-// Sets the map on all markers in the array.
-//       function setMapOnAll(map) {
-//         for (var i = 0; i < markers.length; i++) {
-//           markers[i].setMap(map);
-//         }
-//       }
-// Shows any markers currently in the array.
-// function showMarkers() {
-//   setMapOnAll(map);
-// }
