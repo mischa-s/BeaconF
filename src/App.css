@@ -1,11 +1,18 @@
+/*
+  #5B3E2C
+  #AD8369
+  #69891E
+  #E2DCBE
+*/
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #222;
+  background-color: #5B3E2C;
 }
 h1 {
-  color:  #e6ffb3;
+  color:  #E2DCBE;
   text-align: center;
   font-size: 3em;
   padding-top: 1em;
@@ -15,7 +22,7 @@ h1 {
   text-align: center;
 }
 .button {
-  color:  #e6ffb3;
+  color:  #69891E;
   text-align: center;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -46,11 +53,13 @@ h1 {
   .eachFarm {
     font-size: 1.5em;
     padding-bottom: 1em;
-    background-color: #3d442c;
+    background-color: #69891E;
     margin: auto;
+    margin: .5em;
     border-style: solid;
-    border-width: 1em;
-    border-color: #9ea394;
+    border-width: .8em;
+    border-color: #E2DCBE;
+    border-radius: 2em;
 
   }
     .farmImage img {
